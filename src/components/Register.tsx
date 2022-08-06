@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 import { Card } from "./Card";
 import { Checkbox } from "./Checkbox";
@@ -48,14 +49,13 @@ export const Register = () => {
         </div>
         <Checkbox>Agree to TOS</Checkbox>
         <Button type="expanded" text="Sign up as new user" />
-        <div className="text-sm font-medium text-gray-500">
-          Already Registere?{" "}
-          <a
-            href="#"
-            className="text-blue-700 
+        <div className="text-sm font-medium text-gray-500 flex items-start">
+          Already Registered? <span className="w-2"></span>
+          <p
+              className="text-blue-700 
               hover:underline">
-            Login
-          </a>
+                <Link to="/login">Login</Link>
+            </p>
         </div>
       </form>
     </Card>

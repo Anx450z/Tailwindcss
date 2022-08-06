@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 export const LoginCard = (props: any) => {
@@ -57,13 +58,11 @@ export const LoginCard = (props: any) => {
                 <label className="font-medium text-gray-900">Remember me</label>
               </div>
             </div>
-            {/* <Navigate to ='/register'/> */}
-            <a
-              href="#"
+            <p
               className="text-sm text-blue-700 hover:underline
                ml-auto">
-              Forgot Password?
-            </a>
+                <Link to="#">Forgot Password?</Link>
+            </p>
           </div>
           <button
             type="submit"
@@ -73,14 +72,13 @@ export const LoginCard = (props: any) => {
             Login to your account
           </button>
       
-          <div className="text-sm font-medium text-gray-500">
-            Not registered?{" "}
-            <a
-              href="#"
+          <div className="text-sm font-medium text-gray-500 flex items-start">
+            Not registered?<span className="w-2"></span>
+            <p
               className="text-blue-700 
               hover:underline">
-              Create account
-            </a>
+                <Link to="/register">Create account</Link>
+            </p>
           </div>
         </form>
       </div>

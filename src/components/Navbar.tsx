@@ -2,7 +2,7 @@ import React from "react";
 
 function Navbar() {
   const links = [
-    { name: "Home", url: "/home" },
+    { name: "Home", url: "/" },
     { name: "About", url: "/about" },
     { name: "Contact", url: "/contact" },
   ];
