@@ -19,7 +19,7 @@ function Homepage() {
         nostrum deleniti eligendi facere animi sint, vitae deserunt similique
         architecto delectus! Ad illo iusto molestias nostrum quos!
       </p> */}
-      <LoginCard className='top-20 relative' />
+      <LoginCard />
     </>
   );
 }

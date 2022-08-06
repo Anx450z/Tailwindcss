@@ -8,11 +8,11 @@ function Navbar() {
   ];
   return (
     <>
-      <div className="w-full fixed top-0 left-0 font-[poppins]">
+      <div className="w-full fixed top-0 left-0">
         <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
           <div
             className="font-bold text-2xl cursor-pointer flex items-center
-           font-[poppins] text-gray-800">
+            text-gray-800">
             Logo
           </div>
           <ul className="md:flex md:items-center md:pb-0 pb-7 absolute
@@ -22,7 +22,8 @@ function Navbar() {
               <li key={link.name} className="md:ml-8 text-xl md:my-0 my-2">
                 <a
                   href={link.url}
-                  className="text-gray-800 font-bold text-sm hover:text-indigo-600 duration-500">
+                  className="text-gray-800 font-bold text-sm hover:text-indigo-600 
+                  duration-500">
                   {link.name.toLocaleUpperCase()}
                 </a>
               </li>
