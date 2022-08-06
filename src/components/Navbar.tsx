@@ -1,10 +1,10 @@
 import React from "react";
-import Button from "./Button";
 
 function Navbar() {
   const links = [
-    { name: "Home", url: "/" },
-    { name: "About", url: "/" },
+    { name: "Home", url: "/home" },
+    { name: "About", url: "/about" },
+    { name: "Contact", url: "/contact" },
   ];
   return (
     <>
@@ -29,7 +29,6 @@ function Navbar() {
                 </a>
               </li>
             ))}
-            <Button text="Sign Up"/>
           </ul>
         </div>
       </div>

@@ -1,10 +1,10 @@
 import React from "react";
-import Button from "../components/Button";
-import { Card } from "../components/Card";
-import { Checkbox } from "../components/Checkbox";
-import { Label } from "../components/Label";
-import { PasswordField } from "../components/PasswordField";
-import { TextField } from "../components/TextField";
+import Button from "./Button";
+import { Card } from "./Card";
+import { Checkbox } from "./Checkbox";
+import { Label } from "./Label";
+import { PasswordField } from "./PasswordField";
+import { TextField } from "./TextField";
 
 export const Register = () => {
   return (

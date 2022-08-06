@@ -1,11 +1,12 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 
 export const LoginCard = (props: any) => {
   return (
-    <div className="flex mx-auto justify-center item-center min-h-screen">
+    <div className="flex mx-auto justify-center item-center ">
       <div
         className="md:mt-[20vh] mt-[200px] min-w-[25rem] bg-white shadow-md border
-        border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8 h-[420px]">
+        border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8">
         <form className="space-y-6" action="#">
           <h3 className="text-xl font-medium text-gray-900">
             Sign In with your details
@@ -56,6 +57,7 @@ export const LoginCard = (props: any) => {
                 <label className="font-medium text-gray-900">Remember me</label>
               </div>
             </div>
+            {/* <Navigate to ='/register'/> */}
             <a
               href="#"
               className="text-sm text-blue-700 hover:underline
