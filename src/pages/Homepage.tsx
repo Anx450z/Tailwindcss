@@ -1,11 +1,12 @@
 import React from "react";
+import { LoginCard } from "../components/LoginCard";
 
 function Homepage() {
   return (
     <>
-      <h1>This is Homepage</h1>
+      {/* <h1 className="inherit">This is Homepage</h1>
       <hr />
-      <p>
+      <p className=" inherit">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ab
         dolorum possimus exercitationem earum officiis non laborum dolore natus.
         Eos consequatur iusto deserunt, sunt sequi, voluptatum dolor vero
@@ -17,7 +18,8 @@ function Homepage() {
         quas. Voluptatem quisquam aut nisi esse fugiat ex quasi obcaecati rem
         nostrum deleniti eligendi facere animi sint, vitae deserunt similique
         architecto delectus! Ad illo iusto molestias nostrum quos!
-      </p>
+      </p> */}
+      <LoginCard className='top-20 relative' />
     </>
   );
 }
