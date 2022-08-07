@@ -52,10 +52,10 @@ export const Register = () => {
         <div className="text-sm font-medium text-gray-500 flex items-start">
           Already Registered? <span className="w-2"></span>
           <p
-              className="text-blue-700 
+            className="text-blue-700 
               hover:underline">
-                <Link to="/login">Login</Link>
-            </p>
+            <Link to="/login">Login</Link>
+          </p>
         </div>
       </form>
     </Card>

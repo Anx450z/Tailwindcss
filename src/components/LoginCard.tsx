@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const LoginCard = (props: any) => {
   return (
@@ -8,7 +7,7 @@ export const LoginCard = (props: any) => {
       <div
         className="md:mt-[20vh] mt-[200px] min-w-[25rem] bg-white shadow-md border
         border-gray-200 rounded-lg max-w-sm p-4 sm:p-6 lg:p-8">
-        <form className="space-y-6" action="#">
+        <form className="space-y-6" onSubmit={props.handleSubmit} id="login-form">
           <h3 className="text-xl font-medium text-gray-900">
             Sign In with your details
           </h3>
@@ -61,7 +60,7 @@ export const LoginCard = (props: any) => {
             <p
               className="text-sm text-blue-700 hover:underline
                ml-auto">
-                <Link to="#">Forgot Password?</Link>
+                <NavLink to="#">Forgot Password?</NavLink>
             </p>
           </div>
           <button
@@ -77,7 +76,7 @@ export const LoginCard = (props: any) => {
             <p
               className="text-blue-700 
               hover:underline">
-                <Link to="/register">Create account</Link>
+                <NavLink to="/register">Create account</NavLink>
             </p>
           </div>
         </form>

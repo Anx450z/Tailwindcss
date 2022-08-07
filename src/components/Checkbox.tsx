@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Checkbox = (props:any) => {
+export const Checkbox = (props: any) => {
   return (
     <div className="flex items-start">
       <div className="flex items-center h-5">
