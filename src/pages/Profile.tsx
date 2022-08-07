@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getToken, removeToken } from "../services/LocalStorageService";
-import ChangePassword from "./ChangePassword";
 import { useGetLoggedUserQuery } from "../services/userAuthApi";
 import { useDispatch } from "react-redux";
 import { setUserInfo, unSetUserInfo } from "../features/userSlice";

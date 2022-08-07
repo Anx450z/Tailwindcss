@@ -15,7 +15,6 @@ import SendPasswordResetEmail from "./pages/SendPasswordResetEmail";
 function App() {
   return (
     <>
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -26,13 +25,12 @@ function App() {
             <Route path="register" element={<RegisterPage />} />
             <Route path="profile" element={<Profile />} />
             <Route path="change-password" element={<ChangePassword />} />
+            <Route path="api/user/reset/:id/:token" element={<ResetPassword />} />
           </Route>
-            <Route path="/user-reset-password" element={<ResetPassword />} />
-            <Route path="/send-password-reset-email" element={<SendPasswordResetEmail/>} />
+            <Route path="/send-reset-password-email" element={<SendPasswordResetEmail/>} />
+            <Route path ="*" element={<h1> Error 404 Page not found !!</h1>} />
         </Routes>
       </BrowserRouter>
-      {/* <div className='bg-indigo-600 min-h-[200px]'>
-      </div> */}
     </>
   );
 }

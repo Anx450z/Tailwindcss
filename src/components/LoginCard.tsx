@@ -60,7 +60,7 @@ export const LoginCard = (props: any) => {
             <p
               className="text-sm text-blue-700 hover:underline
                ml-auto">
-                <NavLink to="#">Forgot Password?</NavLink>
+                <NavLink to="/send-reset-password-email">Forgot Password?</NavLink>
             </p>
           </div>
           <button
