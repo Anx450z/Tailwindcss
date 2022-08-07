@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../services/userAuthApi";
 import { storeToken } from "../services/LocalStorageService";
+import { Alert } from "../components/Alert";
 
 function LoginPage() {
   const [error, setError] = useState({
@@ -21,7 +22,7 @@ function LoginPage() {
       email: data.get("email"),
       password: data.get("password"),
     };
-    console.log(actualData)
+
     if (actualData.email && actualData.password) {
       const res: any = await loginUser(actualData);
       if (res.data.status === "success") {
@@ -56,6 +57,7 @@ function LoginPage() {
   return (
     <>
       <LoginCard onHandleSubmit={handleSubmit} error={error} isLoading={isLoading} />
+      {error.status ? <Alert error={error} /> : "" }
     </>
   );
 }

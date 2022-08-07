@@ -68,7 +68,6 @@ function ChangePassword() {
   };
   // getting Data from Redux Store
   const myData = useSelector((state) => (state as any).user);
-  console.log(myData);
 
   return (
     <div className="flex mx-auto justify-center item-center  overflow-hidden">

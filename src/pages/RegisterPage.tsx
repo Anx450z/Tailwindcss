@@ -25,8 +25,6 @@ function RegisterPage() {
       lastName: form_data.get("lastName"),
       passwordConfirmation: form_data.get("passwordConfirmation"),
     };
-
-    console.log(actualData);
     
     if (
       actualData.email &&
