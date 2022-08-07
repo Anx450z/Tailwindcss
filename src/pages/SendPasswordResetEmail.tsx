@@ -4,7 +4,7 @@ import { Label } from "../components/Label";
 import { TextField } from "../components/TextField";
 import React, { useState } from "react";
 import { useSendPasswordResetEmailMutation } from "../services/userAuthApi";
-
+import { Alert } from "../components/Alert";
 
 function SendPasswordResetEmail() {
 
@@ -54,6 +54,7 @@ function SendPasswordResetEmail() {
   };
   
   return (
+    <>
     <div className="flex mx-auto justify-center item-center  overflow-hidden">
     <Card>
       <form
@@ -78,6 +79,8 @@ function SendPasswordResetEmail() {
       </form>
     </Card>
   </div>
+  {error.status ? <Alert error={error} /> : "" }
+  </>
   )
 }
 

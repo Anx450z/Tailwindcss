@@ -7,6 +7,7 @@ import { useChangeUserPasswordMutation } from "../services/userAuthApi";
 import { getToken } from "../services/LocalStorageService";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "../components/Alert";
 
 function ChangePassword() {
   const [error, setError] = useState({
@@ -70,6 +71,7 @@ function ChangePassword() {
   const myData = useSelector((state) => (state as any).user);
 
   return (
+    <>
     <div className="flex mx-auto justify-center item-center  overflow-hidden">
       <Card>
         <form
@@ -99,6 +101,8 @@ function ChangePassword() {
         </form>
       </Card>
     </div>
+    {error.status ? <Alert error={error} /> : "" }
+    </>
   );
 }
 

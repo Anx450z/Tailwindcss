@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { storeToken } from "../services/LocalStorageService";
 import { useRegisterUserMutation } from "../services/userAuthApi";
 import { Register } from "../components/Register";
+import { Alert } from "../components/Alert";
 
 function RegisterPage() {
   const [error, setError] = useState({
@@ -68,6 +69,7 @@ function RegisterPage() {
     }
   };
   return (
+    <>
     <div className="flex mx-auto justify-center item-center  overflow-hidden">
       <Register
         onHandleSubmit={handleSubmit}
@@ -75,6 +77,8 @@ function RegisterPage() {
         isLoading={isLoading}
       />
     </div>
+    {error.status ? <Alert error={error} /> : "" }
+    </>
   );
 }
 

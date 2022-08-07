@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import { Card } from "../components/Card";
 import { Label } from "../components/Label";
 import { PasswordField } from "../components/PasswordField";
+import { Alert } from "../components/Alert";
 
 function ResetPassword() {
   const [error, setError] = useState({
@@ -68,6 +69,7 @@ function ResetPassword() {
   };
 
   return (
+    <>
     <div className="flex mx-auto justify-center item-center  overflow-hidden">
       <Card>
         <form
@@ -97,6 +99,8 @@ function ResetPassword() {
         </form>
       </Card>
     </div>
+    {error.status ? <Alert error={error} /> : "" }
+    </>
   );
 }
 
