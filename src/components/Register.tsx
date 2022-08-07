@@ -7,10 +7,13 @@ import { Label } from "./Label";
 import { PasswordField } from "./PasswordField";
 import { TextField } from "./TextField";
 
-export const Register = (props:any) => {
+export const Register = (props: any) => {
   return (
     <Card>
-      <form className="space-y-6" onSubmit={props.onHandleSubmit} id="register-form" >
+      <form
+        className="space-y-6"
+        onSubmit={props.onHandleSubmit}
+        id="register-form">
         <h3 className="text-xl font-medium text-gray-900">
           Register with you details
         </h3>
@@ -20,35 +23,45 @@ export const Register = (props:any) => {
             User Name
           </TextField>
         </div>
-        <div>
-          <Label>First Name</Label>
-          <TextField type="text" id="firstName" name="firstName">
-            First Name
-          </TextField>
+        <div className="items-start justify-between flex">
+          <div>
+            <Label>First Name</Label>
+            <TextField type="text" id="firstName" name="firstName">
+              First Name
+            </TextField>
+          </div>
+          {/* <span className="w-5"></span> */}
+          <div>
+            <Label>Last Name</Label>
+            <TextField type="text" id="lastName" name="lastName">
+              Last Name
+            </TextField>
+          </div>
         </div>
         <div>
-          <Label>Last Name</Label>
-          <TextField type="text" id="lastName" name="lastName">
-            Last Name
-          </TextField>
-        </div>
-        <div>
-          <Label>Email</Label>
+          <Label>Your email</Label>
           <TextField type="email" id="email" name="email">
             user@example.com
           </TextField>
         </div>
         <div>
-          <Label>Password</Label>
+          <Label>Your password</Label>
           <PasswordField id="password" name="password" />
         </div>
 
         <div>
           <Label>Confirm Password</Label>
-          <PasswordField id="passwordConfirmation" name="passwordConfirmation" />
+          <PasswordField
+            id="passwordConfirmation"
+            name="passwordConfirmation"
+          />
         </div>
-        <Checkbox>Agree to TOS</Checkbox>
-        <Button type="expanded" text="Sign up as new user" />
+        <Checkbox id="tos">Agree to TOS</Checkbox>
+        <Button
+          type="expanded"
+          text="Create an account"
+          isLoading={props.isLoading}
+        />
         <div className="text-sm font-medium text-gray-500 flex items-start">
           Already Registered? <span className="w-2"></span>
           <p

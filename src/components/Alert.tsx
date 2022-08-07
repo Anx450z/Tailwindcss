@@ -4,7 +4,7 @@ export const Alert = (props:any) => {
 
   const [alert, setAlert] = useState({
     background : `bg-green-700 text-center py-4 lg:px-4 
-                  absolute bottom-0 w-screen`,
+                  fixed bottom-0 w-screen`,
         banner : `p-2 bg-green-600 items-center text-green-100,
                      leading-none lg:rounded-full flex lg:inline-flex`,
         pill : `flex rounded-full bg-green-500 uppercase 
@@ -16,7 +16,7 @@ export const Alert = (props:any) => {
     if(props.error.type === "error"){
       setAlert({
         background :`bg-red-700 text-center py-4 lg:px-4
-                    absolute bottom-0 w-screen`,
+                    fixed bottom-0 w-screen z-[-1]`,
         banner :`p-2 bg-red-600 items-center text-red-100
                      leading-none lg:rounded-full flex lg:inline-flex`,
         pill : `flex rounded-full bg-red-500 uppercase 
@@ -26,7 +26,7 @@ export const Alert = (props:any) => {
     if(props.error.type === "success"){
       setAlert({
         background :`bg-blue-700 text-center py-4 lg:px-4
-                    absolute bottom-0 w-screen`,
+                    fixed bottom-0 w-screen`,
         banner :`p-2 bg-blue-600 items-center text-blue-100
                      leading-none lg:rounded-full flex lg:inline-flex`,
         pill : `flex rounded-full bg-blue-500 uppercase 
