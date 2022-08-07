@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "./Button";
 import { Card } from "./Card";
 import { Checkbox } from "./Checkbox";
@@ -7,16 +7,16 @@ import { Label } from "./Label";
 import { PasswordField } from "./PasswordField";
 import { TextField } from "./TextField";
 
-export const Register = () => {
+export const Register = (props:any) => {
   return (
     <Card>
-      <form className="space-y-6" action="#">
+      <form className="space-y-6" onSubmit={props.onHandleSubmit} id="register-form" >
         <h3 className="text-xl font-medium text-gray-900">
           Register with you details
         </h3>
         <div>
           <Label>User Name</Label>
-          <TextField type="text" id="UserName" name="UserName">
+          <TextField type="text" id="userName" name="userName">
             User Name
           </TextField>
         </div>
@@ -45,7 +45,7 @@ export const Register = () => {
 
         <div>
           <Label>Confirm Password</Label>
-          <PasswordField id="ConfirmPassword" name="ConfirmPassword" />
+          <PasswordField id="passwordConfirmation" name="passwordConfirmation" />
         </div>
         <Checkbox>Agree to TOS</Checkbox>
         <Button type="expanded" text="Sign up as new user" />
@@ -54,7 +54,7 @@ export const Register = () => {
           <p
             className="text-blue-700 
               hover:underline">
-            <Link to="/login">Login</Link>
+            <NavLink to="/login">Login</NavLink>
           </p>
         </div>
       </form>

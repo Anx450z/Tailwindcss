@@ -55,7 +55,6 @@ function LoginPage() {
 
   return (
     <>
-      {/* <LoginCard onSubmit={handleSubmit} error={error} isLoading={isLoading} /> */}
       <LoginCard onHandleSubmit={handleSubmit} error={error} isLoading={isLoading} />
     </>
   );
