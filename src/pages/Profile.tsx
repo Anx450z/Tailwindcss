@@ -37,7 +37,7 @@ function Profile() {
     dispatch(unSetUserToken({ token: null }));
 
     removeToken("token");
-    navigate("/login");
+    navigate("/");
   };
 
   // Store User Data in Redux Store

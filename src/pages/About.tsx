@@ -3,6 +3,7 @@ import React from 'react'
 function About() {
   return (
     <>
+    <div className="md:mt-[10vh] mt-[200px]">
     <h1>About</h1>
     <hr />
       <p>
@@ -18,6 +19,7 @@ function About() {
         nostrum deleniti eligendi facere animi sint, vitae deserunt similique
         architecto delectus! Ad illo iusto molestias nostrum quos!
       </p>
+    </div>
     </>
   )
 }

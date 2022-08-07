@@ -3,6 +3,7 @@ import React from 'react'
 function Contact() {
   return (
     <>
+        <div className="md:mt-[10vh] mt-[200px]">
     <h1>Contact</h1>
     <hr />
       <p>
@@ -51,6 +52,7 @@ function Contact() {
         nostrum deleniti eligendi facere animi sint, vitae deserunt similique
         architecto delectus! Ad illo iusto molestias nostrum quos!
       </p>
+      </div>
     </>
   )
 }

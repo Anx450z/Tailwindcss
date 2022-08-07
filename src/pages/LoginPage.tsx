@@ -1,9 +1,11 @@
 import { LoginCard } from "../components/LoginCard";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../services/userAuthApi";
-import { storeToken } from "../services/LocalStorageService";
+import { storeToken, getToken } from "../services/LocalStorageService";
 import { Alert } from "../components/Alert";
+import { useDispatch } from "react-redux";
+import { setUserToken } from "../features/authSlice";
 
 function LoginPage() {
   const [error, setError] = useState({
@@ -54,10 +56,21 @@ function LoginPage() {
     }
   };
 
+  //  saving token using Redux
+  let token = getToken();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setUserToken({ token: token }));
+  }, [token, dispatch]);
+
   return (
     <>
-      <LoginCard onHandleSubmit={handleSubmit} error={error} isLoading={isLoading} />
-      {error.status ? <Alert error={error} /> : "" }
+      <LoginCard
+        onHandleSubmit={handleSubmit}
+        error={error}
+        isLoading={isLoading}
+      />
+      {error.status ? <Alert error={error} /> : ""}
     </>
   );
 }

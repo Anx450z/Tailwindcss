@@ -1,4 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { getToken } from "../services/LocalStorageService";
+import Button from "./Button";
 
 function Navbar() {
   const links = [
@@ -6,6 +9,17 @@ function Navbar() {
     { name: "About", url: "/about" },
     { name: "Contact", url: "/contact" },
   ];
+  const navigate = useNavigate()
+
+  const token = getToken();
+
+  const handleLogin = () => {
+    navigate("/login")
+  }
+  const handleProfile = () => {
+    navigate("/profile")
+  }
+
   return (
     <>
       <div className="w-full fixed top-0 left-0">
@@ -31,6 +45,11 @@ function Navbar() {
                 </a>
               </li>
             ))}
+            {token ? (
+              <Button text="Profile" onClick={handleProfile} />
+            ) : (
+              <Button text="Login" onClick={handleLogin} />
+            )}
           </ul>
         </div>
       </div>
