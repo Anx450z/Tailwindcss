@@ -16,7 +16,6 @@ import { useSelector } from "react-redux";
 function App() {
 
   const {token} = useSelector(state=>(state as any).auth)
-  console.log("app token ===",token)
   return (
     <>
       <BrowserRouter>
