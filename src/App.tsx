@@ -12,6 +12,8 @@ import RegisterPage from "./pages/RegisterPage";
 import ResetPassword from "./pages/ResetPassword";
 import SendPasswordResetEmail from "./pages/SendPasswordResetEmail";
 import { useSelector } from "react-redux";
+import RequestEmailVerification from "./pages/RequestEmailVerification";
+import UserEmailVerification from "./pages/UserEmailVerification";
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
             <Route path="register" element={<RegisterPage />} />
             <Route path="profile" element={token ? <Profile /> :<Navigate to="/login" />} />
             <Route path="change-password" element={<ChangePassword />} />
+            <Route path="request-email-verification" element={<RequestEmailVerification />} />
+            <Route path="user-email-verification" element={<UserEmailVerification />} />
             <Route path="api/user/reset/:id/:token" element={<ResetPassword />} />
           </Route>
             <Route path="/send-reset-password-email" element={<SendPasswordResetEmail/>} />

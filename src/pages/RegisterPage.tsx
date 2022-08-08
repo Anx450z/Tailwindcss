@@ -46,7 +46,7 @@ function RegisterPage() {
               document.getElementById('register-form') as HTMLFormElement
             ).reset()
             storeToken(res.data.token)
-            navigate('/login')
+            navigate('/request-email-verification')
           }
           if (res.data.status === 'failed') {
             setError({
