@@ -16,7 +16,7 @@ function ChangePassword() {
     type: "",
   });
 
-  const [changeUserPassword] = useChangeUserPasswordMutation();
+  const [changeUserPassword, isLoading] = useChangeUserPasswordMutation();
   const navigate = useNavigate();
 
   const handleSubmit = async (event: any) => {
@@ -67,8 +67,10 @@ function ChangePassword() {
       });
     }
   };
-  // getting Data from Redux Store
+
+  //* getting Data from Redux Store
   const myData = useSelector((state) => (state as any).user);
+  console.log(myData)
 
   return (
     <>
@@ -97,6 +99,7 @@ function ChangePassword() {
             type="expanded"
             text="Change Password"
             onSubmit={handleSubmit}
+            isLoading={isLoading}
           />
         </form>
       </Card>

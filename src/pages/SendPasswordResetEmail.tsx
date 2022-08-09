@@ -75,6 +75,7 @@ function SendPasswordResetEmail() {
           type="expanded"
           text="Change Password"
           onSubmit={handleSubmit}
+          isLoading={isLoading}
         />
       </form>
     </Card>

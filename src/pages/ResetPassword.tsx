@@ -14,7 +14,7 @@ function ResetPassword() {
     type: "",
   });
 
-  const [resetPassword] = useResetPasswordMutation();
+  const [resetPassword, isLoading] = useResetPasswordMutation();
   const { id, token } = useParams();
 
   const navigate = useNavigate();
@@ -95,6 +95,7 @@ function ResetPassword() {
             type="expanded"
             text="Change Password"
             onSubmit={handleSubmit}
+            isLoading={isLoading}
           />
         </form>
       </Card>
