@@ -11,19 +11,19 @@ export const Alert = (props: any) => {
   })
 
   useEffect(() => {
-    if (props.error.type === 'error') {
-      setAlert({
-        background: `bg-red-800 text-center py-4 lg:px-4
-                    fixed bottom-0 w-screen z-[-1] animate-[peak-up_1s_ease-in-out]`,
-        banner: `p-2 bg-red-600 items-center text-red-100
-                     leading-none lg:rounded-full flex lg:inline-flex`,
-        pill: `flex rounded-full bg-red-400 uppercase 
-                   px-2 py-1 text-xs font-bold mr-3`,
-      })
+    if (props.error.type === 'error') { 
+        setAlert({
+          background: `bg-red-800 text-center py-4 lg:px-4
+                    fixed bottom-0 w-screen z-[-1] `,
+          banner: `p-2 bg-red-600 items-center text-red-100
+                       leading-none lg:rounded-full flex lg:inline-flex`,
+          pill: `flex rounded-full bg-red-400 uppercase 
+                     px-2 py-1 text-xs font-bold mr-3`,
+        })
       setTimeout(() => {
         setAlert({
           background: `bg-red-800 text-center py-4 lg:px-4
-                      fixed bottom-0 w-screen z-[-1] animate-[peak-down_1s_ease-in-out]`,
+                      fixed bottom-0 w-screen z-[-1] `,
           banner: `p-2 bg-red-600 items-center text-red-100
                        leading-none lg:rounded-full flex lg:inline-flex`,
           pill: `flex rounded-full bg-red-400 uppercase 

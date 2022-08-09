@@ -31,8 +31,8 @@ module.exports = {
       },
       animation: {
         wiggle: "wiggle 1s ease-in-out infinite",
-        "peak-up": "peak-up 1s ease-in-out infinite",
-        "peak-down": "peak-down 1s ease-in-out infinite",
+        "peak-up": "peak-up 500 ease-in-out infinite",
+        "peak-down": "peak-down 500 ease-in-out infinite",
       },
     },
   },
