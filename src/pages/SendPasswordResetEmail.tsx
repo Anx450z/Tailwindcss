@@ -55,7 +55,7 @@ function SendPasswordResetEmail() {
   
   return (
     <>
-    <div className="flex mx-auto justify-center item-center  overflow-hidden">
+    <div className="flex mx-auto justify-center item-center">
     <Card>
       <form
         className="space-y-6"

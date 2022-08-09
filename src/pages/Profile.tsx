@@ -54,7 +54,7 @@ function Profile() {
   }, [isSuccess, data, dispatch]);
 
   return (
-    <div className="flex mx-auto justify-center item-center  overflow-hidden">
+    <div className="flex mx-auto justify-center item-center">
       <Card>
         <h3 className="text-3xl font-medium text-gray-900 my-6">
           Welcome back {userData.firstName} !

@@ -79,7 +79,7 @@ function RegisterPage() {
   }
   return (
     <>
-      <div className="item-center mx-auto flex justify-center  overflow-hidden">
+      <div className="flex mx-auto justify-center item-center">
         <Register
           onHandleSubmit={handleSubmit}
           error={error}

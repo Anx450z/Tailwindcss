@@ -1,8 +1,12 @@
 import React from 'react'
+import { Card } from '../components/Card'
 
 function RequestEmailVerification() {
   return (
-    <div>RequestEmailVerification</div>
+    <Card>
+
+      <div>RequestEmailVerification</div>
+    </Card>
   )
 }
 
