@@ -12,7 +12,7 @@ export const LoginCard = (props: any) => {
       <Card>
         <form className="space-y-6" onSubmit={props.onHandleSubmit} id="login-form">
           <h3 className="text-xl font-medium text-gray-900">
-            Sign In with your details
+            Login with your details
           </h3>
           <div>
           <Label>Your email</Label>
@@ -25,7 +25,7 @@ export const LoginCard = (props: any) => {
           <PasswordField id="password" name="password" />
         </div>
           <div className="flex items-start">
-          <Checkbox id="tos">Agree to TOS</Checkbox>
+          <Checkbox id="tos">Remember me</Checkbox>
             <p
               className="text-sm text-blue-700 hover:underline
                ml-auto">
