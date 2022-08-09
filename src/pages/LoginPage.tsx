@@ -1,86 +1,88 @@
-import { LoginCard } from '../components/LoginCard'
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useLoginUserMutation } from '../services/userAuthApi'
-import { storeToken, getToken } from '../services/LocalStorageService'
-import { Alert } from '../components/Alert'
-import { useDispatch } from 'react-redux'
-import { setUserToken } from '../features/authSlice'
+import { LoginCard } from "../components/LoginCard";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLoginUserMutation } from "../services/userAuthApi";
+import { storeToken, getToken } from "../services/LocalStorageService";
+import { Alert } from "../components/Alert";
+import { useDispatch } from "react-redux";
+import { setUserToken } from "../features/authSlice";
 
 function LoginPage() {
   const [error, setError] = useState({
     status: false,
-    msg: '',
-    type: '',
-  })
-  const navigate = useNavigate()
-  const [loginUser, { isLoading }] = useLoginUserMutation()
+    msg: "",
+    type: "",
+  });
+  const navigate = useNavigate();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const handleSubmit = async (event: any) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const data = new FormData(event.currentTarget)
+    const data = new FormData(event.currentTarget);
     const actualData = {
-      email: data.get('email'),
-      password: data.get('password'),
-    }
+      email: data.get("email"),
+      password: data.get("password"),
+    };
 
     if (actualData.email && actualData.password) {
       try {
-        const res: any = await loginUser(actualData)
-        if (res.data.status === 'success') {
-          ;(document.getElementById('login-form') as HTMLFormElement).reset()
+        const res: any = await loginUser(actualData);
+        if (res.data.status === "success") {
+          (document.getElementById("login-form") as HTMLFormElement).reset();
           setError({
             status: true,
-            msg: 'Login Success',
-            type: 'success',
-          })
+            msg: "Login Success",
+            type: "success",
+          });
           // Store Token
-          storeToken(res.data.token)
+          storeToken(res.data.token);
           setTimeout(() => {
-            navigate('/profile')
-          }, 500)
+            navigate("/profile");
+          }, 500);
         }
-        if (res.data.status === 'failed') {
+        if (res.data.status === "failed") {
           setError({
             status: true,
             msg: res.data.msg,
-            type: 'error',
-          })
+            type: "error",
+          });
         }
       } catch (error) {
         setError({
           status: true,
-          msg: 'cannot connect to server, please check your connection settings',
-          type: 'error',
-        })
+          msg: "cannot connect to server, please check your connection settings",
+          type: "error",
+        });
       }
     } else {
       setError({
         status: true,
-        msg: 'All fields are required',
-        type: 'error',
-      })
+        msg: "All fields are required",
+        type: "error",
+      });
     }
-  }
+  };
 
   //  saving token using Redux
-  let token = getToken()
-  const dispatch = useDispatch()
+  let token = getToken();
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(setUserToken({ token: token }))
-  }, [token, dispatch])
+    dispatch(setUserToken({ token: token }));
+  }, [token, dispatch]);
 
   return (
     <>
-      <LoginCard
-        onHandleSubmit={handleSubmit}
-        error={error}
-        isLoading={isLoading}
-      />
-      {error.status ? <Alert error={error} /> : ''}
+      <div className="flex mx-auto justify-center item-center">
+        <LoginCard
+          onHandleSubmit={handleSubmit}
+          error={error}
+          isLoading={isLoading}
+        />
+        {error.status ? <Alert error={error} /> : ""}
+      </div>
     </>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

@@ -9,7 +9,6 @@ import { TextField } from "./TextField";
 
 export const LoginCard = (props: any) => {
   return (
-    <div className="flex mx-auto justify-center item-center ">
       <Card>
         <form className="space-y-6" onSubmit={props.onHandleSubmit} id="login-form">
           <h3 className="text-xl font-medium text-gray-900">
@@ -48,6 +47,5 @@ export const LoginCard = (props: any) => {
           </div>
         </form>
         </Card>
-    </div>
   );
 };
