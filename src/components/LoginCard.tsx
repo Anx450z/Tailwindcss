@@ -7,7 +7,7 @@ import { Label } from "./Label";
 import { PasswordField } from "./PasswordField";
 import { TextField } from "./TextField";
 
-export const LoginCard = (props: any) => {
+const LoginCard = (props: any) => {
   return (
       <Card>
         <form className="space-y-6" onSubmit={props.onHandleSubmit} id="login-form">
@@ -49,3 +49,5 @@ export const LoginCard = (props: any) => {
         </Card>
   );
 };
+
+export default LoginCard;

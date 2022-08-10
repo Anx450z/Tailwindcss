@@ -1,13 +1,15 @@
-import { LoginCard } from "../components/LoginCard";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../services/userAuthApi";
 import { storeToken, getToken } from "../services/LocalStorageService";
 import { Alert } from "../components/Alert";
 import { useDispatch } from "react-redux";
 import { setUserToken } from "../features/authSlice";
+import { CircularLoading } from "../components/CircularLoading";
 
 function LoginPage() {
+  const LoginCard = lazy(() => import("../components/LoginCard"));
+
   const [error, setError] = useState({
     status: false,
     msg: "",
@@ -74,11 +76,18 @@ function LoginPage() {
   return (
     <>
       <div className="flex mx-auto justify-center item-center">
-        <LoginCard
-          onHandleSubmit={handleSubmit}
-          error={error}
-          isLoading={isLoading}
-        />
+        <Suspense
+          fallback={
+            <div className="mt-[50vh] bg-gray-600 rounded-lg px-5 py-2.5 text-white flex">
+              <CircularLoading /> loading...
+            </div>
+          }>
+          <LoginCard
+            onHandleSubmit={handleSubmit}
+            error={error}
+            isLoading={isLoading}
+          />
+        </Suspense>
         {error.status ? <Alert error={error} /> : ""}
       </div>
     </>
