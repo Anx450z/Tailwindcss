@@ -5,10 +5,10 @@ import { useGetLoggedUserQuery } from "../services/userAuthApi";
 import { useDispatch } from "react-redux";
 import { setUserInfo, unSetUserInfo } from "../features/userSlice";
 import { unSetUserToken } from "../features/authSlice";
-import { Label } from "../components/Label";
+import { Label } from "../components/common/Label";
 import { NavLink } from "react-router-dom";
-import Button from "../components/Button";
-import { Card } from "../components/Card";
+import Button from "../components/common/Button";
+import { Card } from "../components/common/Card";
 
 function Profile() {
   const navigate = useNavigate();

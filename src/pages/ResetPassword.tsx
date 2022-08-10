@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useResetPasswordMutation } from "../services/userAuthApi";
-import Button from "../components/Button";
-import { Card } from "../components/Card";
-import { Label } from "../components/Label";
-import { PasswordField } from "../components/PasswordField";
-import { Alert } from "../components/Alert";
+import Button from "../components/common/Button";
+import { Card } from "../components/common/Card";
+import { Label } from "../components/common/Label";
+import { PasswordField } from "../components/common/PasswordField";
+import { Alert } from "../components/common/Alert";
 
 function ResetPassword() {
   const [error, setError] = useState({

@@ -2,10 +2,10 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../services/userAuthApi";
 import { storeToken, getToken } from "../services/LocalStorageService";
-import { Alert } from "../components/Alert";
+import { Alert } from "../components/common/Alert";
 import { useDispatch } from "react-redux";
 import { setUserToken } from "../features/authSlice";
-import { CircularLoading } from "../components/CircularLoading";
+import { LoadingPill } from "../components/common/LoadingPill";
 
 function LoginPage() {
   const LoginCard = lazy(() => import("../components/LoginCard"));
@@ -78,9 +78,7 @@ function LoginPage() {
       <div className="flex mx-auto justify-center item-center">
         <Suspense
           fallback={
-            <div className="mt-[50vh] bg-gray-600 rounded-lg px-5 py-2.5 text-white flex">
-              <CircularLoading /> loading...
-            </div>
+           <LoadingPill />
           }>
           <LoginCard
             onHandleSubmit={handleSubmit}

@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Button from "./Button";
-import { Card } from "./Card";
-import { Checkbox } from "./Checkbox";
-import { Label } from "./Label";
-import { PasswordField } from "./PasswordField";
-import { TextField } from "./TextField";
+import Button from "./common/Button";
+import { Card } from "./common/Card";
+import { Checkbox } from "./common/Checkbox";
+import { Label } from "./common/Label";
+import { PasswordField } from "./common/PasswordField";
+import { TextField } from "./common/TextField";
 
-export const Register = (props: any) => {
+const Register = (props: any) => {
   return (
     <Card>
       <form
@@ -74,3 +74,5 @@ export const Register = (props: any) => {
     </Card>
   );
 };
+
+export default Register;

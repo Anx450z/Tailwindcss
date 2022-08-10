@@ -1,10 +1,10 @@
-import Button from "../components/Button";
-import { Card } from "../components/Card";
-import { Label } from "../components/Label";
-import { TextField } from "../components/TextField";
+import Button from "../components/common/Button";
+import { Card } from "../components/common/Card";
+import { Label } from "../components/common/Label";
+import { TextField } from "../components/common/TextField";
 import React, { useState } from "react";
 import { useSendPasswordResetEmailMutation } from "../services/userAuthApi";
-import { Alert } from "../components/Alert";
+import { Alert } from "../components/common/Alert";
 
 function SendPasswordResetEmail() {
 

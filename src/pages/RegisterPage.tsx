@@ -1,31 +1,33 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { storeToken } from '../services/LocalStorageService'
-import { useRegisterUserMutation } from '../services/userAuthApi'
-import { Register } from '../components/Register'
-import { Alert } from '../components/Alert'
+import React, { lazy, Suspense, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { storeToken } from "../services/LocalStorageService";
+import { useRegisterUserMutation } from "../services/userAuthApi";
+import { Alert } from "../components/common/Alert";
+import { LoadingPill } from "../components/common/LoadingPill";
 
 function RegisterPage() {
+  const Register = lazy(() => import("../components/RegisterCard"));
+
   const [error, setError] = useState({
     status: false,
-    msg: '',
-    type: '',
-  })
+    msg: "",
+    type: "",
+  });
 
-  const navigate = useNavigate()
-  const [registerUser, { isLoading }] = useRegisterUserMutation()
+  const navigate = useNavigate();
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
 
   const handleSubmit = async (event: any) => {
-    event.preventDefault()
-    const form_data = new FormData(event.currentTarget)
+    event.preventDefault();
+    const form_data = new FormData(event.currentTarget);
     const actualData = {
-      email: form_data.get('email'),
-      password: form_data.get('password'),
-      userName: form_data.get('userName'),
-      firstName: form_data.get('firstName'),
-      lastName: form_data.get('lastName'),
-      passwordConfirmation: form_data.get('passwordConfirmation'),
-    }
+      email: form_data.get("email"),
+      password: form_data.get("password"),
+      userName: form_data.get("userName"),
+      firstName: form_data.get("firstName"),
+      lastName: form_data.get("lastName"),
+      passwordConfirmation: form_data.get("passwordConfirmation"),
+    };
 
     if (
       actualData.email &&
@@ -34,61 +36,63 @@ function RegisterPage() {
       actualData.passwordConfirmation !== null
     ) {
       if (actualData.password === actualData.passwordConfirmation) {
-        const res: any = await registerUser(actualData)
+        const res: any = await registerUser(actualData);
         try {
-          if (res.data.status === 'success') {
+          if (res.data.status === "success") {
             setError({
               status: true,
-              msg: 'Registration Success',
-              type: 'success',
-            })
-            ;(
-              document.getElementById('register-form') as HTMLFormElement
-            ).reset()
-            storeToken(res.data.token)
-            navigate('/request-email-verification')
+              msg: "Registration Success",
+              type: "success",
+            });
+            (
+              document.getElementById("register-form") as HTMLFormElement
+            ).reset();
+            storeToken(res.data.token);
+            navigate("/request-email-verification");
           }
-          if (res.data.status === 'failed') {
+          if (res.data.status === "failed") {
             setError({
               status: true,
               msg: res.data.msg,
-              type: 'error',
-            })
+              type: "error",
+            });
           }
         } catch (error) {
           setError({
             status: true,
-            msg: 'cannot connect to server, please check your connection settings',
-            type: 'error',
-          })
+            msg: "cannot connect to server, please check your connection settings",
+            type: "error",
+          });
         }
       } else {
         setError({
           status: true,
-          msg: 'password and confirm password did not match',
-          type: 'error',
-        })
+          msg: "password and confirm password did not match",
+          type: "error",
+        });
       }
     } else {
       setError({
         status: true,
-        msg: 'All fields are required',
-        type: 'error',
-      })
+        msg: "All fields are required",
+        type: "error",
+      });
     }
-  }
+  };
   return (
     <>
       <div className="flex mx-auto justify-center item-center">
-        <Register
-          onHandleSubmit={handleSubmit}
-          error={error}
-          isLoading={isLoading}
-        />
+        <Suspense fallback={<LoadingPill />}>
+          <Register
+            onHandleSubmit={handleSubmit}
+            error={error}
+            isLoading={isLoading}
+          />
+        </Suspense>
       </div>
-      {error.status ? <Alert error={error} /> : ''}
+      {error.status ? <Alert error={error} /> : ""}
     </>
-  )
+  );
 }
 
-export default RegisterPage
+export default RegisterPage;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { getToken } from "../services/LocalStorageService";
-import Button from "./Button";
+import Button from "./common/Button";
 
 function Navbar() {
   const links = [

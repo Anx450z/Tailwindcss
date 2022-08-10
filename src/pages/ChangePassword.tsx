@@ -1,13 +1,13 @@
-import Button from "../components/Button";
-import { Card } from "../components/Card";
-import { Label } from "../components/Label";
-import { PasswordField } from "../components/PasswordField";
+import Button from "../components/common/Button";
+import { Card } from "../components/common/Card";
+import { Label } from "../components/common/Label";
+import { PasswordField } from "../components/common/PasswordField";
 import React, { useState } from "react";
 import { useChangeUserPasswordMutation } from "../services/userAuthApi";
 import { getToken } from "../services/LocalStorageService";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Alert } from "../components/Alert";
+import { Alert } from "../components/common/Alert";
 
 function ChangePassword() {
   const [error, setError] = useState({
